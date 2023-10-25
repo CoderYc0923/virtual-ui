@@ -1,0 +1,25 @@
+@media (max-width: 960px) {
+  // 主页
+  #doc-page {
+    padding: 0;
+  }
+  // 导航
+  #doc-aside {
+    display: none;
+  }
+}
+@media (max-width: 1280px) {
+  // 目录
+  #doc-catalogue {
+    display: none;
+  }
+  // 主页
+  #doc-page {
+    padding-right: 0;
+  }
+}
+@media (min-width: 960px) {
+  #shit-nav {
+    display: none;
+  }
+}
