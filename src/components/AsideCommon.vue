@@ -1,6 +1,17 @@
 <template>
   <div>
-    <h2>wspl</h2>
+    <div v-for="(item, index) in asideData" :key="index" class="px-2 mt-8">
+      <h2 class="text-base font-bold">{{ item.title }}</h2>
+      <router-link v-for="(routerItem, routerIndex) in item.routerData" :key="`${index}-${routerIndex}`"
+        :to="baseLink + '/' + routerItem.path" @click="$emit('selectLink', baseLink + '/' + routerItem.path)">
+        <div :class="{
+          'select-router-item':
+            localRoute === baseLink + '/' + routerItem.path,
+        }" class="text-sm hover:text-sky-300 p-2 pl-4 text-gray-500 rounded-lg font-light transition">
+          {{ routerItem.meta?.title }}
+        </div>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -11,7 +22,23 @@ defineProps({
   asideData: {
     type: Array as () => IRouterType[],
   },
+  baseLink: {
+    type: String,
+    default: "/doc/component",
+  },
+});
+defineEmits(["selectLink"]);
+
+const router = useRouter();
+const localRoute = ref(router.currentRoute.value.path);
+
+onBeforeRouteUpdate((to) => {
+  localRoute.value = to.path;
 });
 </script>
 
-<style></style>
+<style>
+.select-router-item {
+  @apply bg-sky-300 text-sky-400 hover:text-sky-400 font-bold bg-opacity-20 font-normal !important;
+}
+</style>

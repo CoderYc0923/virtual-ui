@@ -12,3 +12,4 @@ declare module "*.md" {
 }
 declare module "*.ts";
 declare module "@/router/routerConfig";
+declare module "prismjs";

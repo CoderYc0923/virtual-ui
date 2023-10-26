@@ -1,6 +1,6 @@
 import {
   createRouter,
-  createWebHashHistory,
+  createWebHistory,
   RouterOptions,
   Router,
   RouteRecordRaw,
@@ -8,10 +8,11 @@ import {
 import { routerDocsComponent } from "./routerConfig";
 
 const routes: RouteRecordRaw[] = [
+  { path: '/', redirect: '/doc/component' },
   {
-    path: "/",
-    name: "Home",
-    component: () => import("@/views/Home.vue"),
+    path: "/test",
+    name: "Test",
+    component: () => import("@/views/Test.vue"),
   },
   {
     path: "/doc/component",
@@ -27,7 +28,7 @@ const routes: RouteRecordRaw[] = [
 ];
 
 const options: RouterOptions = {
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
 };
 

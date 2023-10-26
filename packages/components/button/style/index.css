@@ -1,0 +1,140 @@
+/*@layer components {*/
+/*按钮基础属性*/
+.vir-button {
+    /*布局 高度*/
+    @apply inline-flex justify-center items-center h-8;
+    /*边距*/
+    @apply px-3.5 py-2;
+    /*边框*/
+    @apply border rounded;
+    /*字体*/
+    @apply text-sm text-gray-700;
+    @apply transition cursor-pointer whitespace-nowrap;
+}
+
+/*按钮默认属性*/
+/*.button-default {*/
+/*  @apply hover:bg-sky-200 hover:bg-opacity-50 hover:text-sky-400 hover:border-sky-200 active:border-sky-400;*/
+/*}*/
+.vir-button-default:not(.vir-is-disabled) {
+    @apply hover:bg-sky-200 hover:bg-opacity-50 hover:text-sky-400 hover:border-sky-200 active:border-sky-400;
+}
+
+/*primary 类型按钮*/
+.vir-button-primary {
+    @apply bg-primary text-white;
+}
+
+.vir-button-primary:not(.vir-is-disabled) {
+    @apply hover:bg-opacity-80;
+    @apply active:bg-sky-600 !important;
+}
+
+/*primary 类型朴素按钮*/
+.vir-button-primary.vir-is-plain {
+    @apply border-sky-400 text-primary bg-sky-200;
+}
+
+.vir-button-primary.vir-is-plain:not(.vir-is-disabled) {
+    @apply hover:bg-primary hover:text-white;
+}
+
+.vir-button-success {
+    @apply bg-success text-white;
+}
+
+.vir-button-success:not(.vir-is-disabled) {
+    @apply hover:bg-opacity-80;
+    @apply active:bg-green-600 !important;
+}
+
+.vir-button-success.vir-is-plain {
+    @apply text-success bg-green-200 border-green-400;
+}
+
+.vir-button-success.vir-is-plain:not(.vir-is-disabled) {
+    @apply hover:bg-success hover:text-white;
+}
+
+.vir-button-info {
+    @apply bg-info text-white;
+}
+
+.vir-button-info:not(.vir-is-disabled) {
+    @apply hover:bg-opacity-80;
+    @apply active:bg-gray-600;
+}
+
+.vir-button-info.vir-is-plain {
+    @apply text-info bg-gray-200 border-gray-400;
+}
+
+.vir-button-info.vir-is-plain:not(.vir-is-disabled) {
+    @apply hover:bg-info hover:text-white;
+}
+
+.vir-button-warning {
+    @apply bg-warning text-white;
+}
+
+.vir-button-warning:not(.vir-is-disabled) {
+    @apply hover:bg-opacity-80;
+    @apply active:bg-orange-600 !important;
+}
+
+.vir-button-warning.vir-is-plain {
+    @apply text-warning bg-orange-200 border-orange-400;
+}
+
+.vir-button-warning.vir-is-plain:not(.vir-is-disabled) {
+    @apply hover:bg-warning hover:text-white;
+}
+
+.vir-button-danger {
+    @apply bg-danger text-white;
+}
+
+.vir-button-danger:not(.vir-is-disabled) {
+    @apply hover:bg-opacity-80;
+    @apply active:bg-red-600 !important;
+}
+
+.vir-button-danger.vir-is-plain {
+    @apply text-danger bg-red-200 border-red-400;
+}
+
+.vir-button-danger.vir-is-plain:not(.vir-is-disabled) {
+    @apply hover:bg-danger hover:text-white;
+}
+
+/*文字类型按钮*/
+.vir-button-text {
+    @apply bg-transparent text-primary border-none !important;
+}
+
+.vir-button-text.vir-is-disabled {
+    @apply text-gray-400 !important;
+}
+
+.vir-button-text:not(.vir-is-disabled) {
+    @apply hover:text-sky-300 active:text-sky-600 !important;
+}
+
+.vir-is-plain {
+    /*color: deepskyblue;*/
+    @apply bg-opacity-40;
+}
+
+.vir-is-round {
+    @apply rounded-full;
+}
+
+.vir-is-disabled {
+    @apply cursor-not-allowed opacity-70;
+}
+
+.vir-is-circle {
+    @apply rounded-full w-8;
+}
+
+/*}*/

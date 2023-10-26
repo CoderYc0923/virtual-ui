@@ -12,6 +12,7 @@
       </router-link>
     </div>
   </header>
+  <div id="navbar-helper"></div>
 </template>
 
 <script setup lang="ts"></script>

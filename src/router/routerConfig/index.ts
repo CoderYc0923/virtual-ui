@@ -1,5 +1,6 @@
 import { RouteRecordRaw } from "vue-router";
 import { beforeComponent } from "./before.component";
+import { baseComponent } from "./base.component";
 
 export interface IRouterType {
   title: string;
@@ -14,6 +15,10 @@ export const routerDocsComponentConfig = {
   index: {
     title: "前言",
     routerData: beforeComponent,
+  },
+  baseComponents: {
+    title: "Basic 基础组件",
+    routerData: baseComponent,
   },
 } as IRouterConfigType;
 
