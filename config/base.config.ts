@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import AutoImport from "unplugin-auto-import/vite";
+import VueJsx from '@vitejs/plugin-vue-jsx'
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import Markdown from "vite-plugin-md";
 import MarkdownItAnchor from "markdown-it-anchor";
@@ -20,6 +21,7 @@ export default defineConfig({
   },
   plugins: [
     vue({ include: [/\.vue$/, /\.md$/] }),
+    VueJsx(),
     AutoImport({
       imports: ["vue", "vue-router"],
       dts: "src/types/auto-import.d.ts",

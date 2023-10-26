@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
     "sass": "^1.69.4",
     "vite-plugin-md": "0.11.6",
     "vue": "^3.3.4",
@@ -18,6 +19,7 @@
     "@types/node": "^20.8.8",
     "@types/prismjs": "^1.26.2",
     "@vitejs/plugin-vue": "^4.2.3",
+    "@vitejs/plugin-vue-jsx": "^3.0.2",
     "autoprefixer": "^10.4.16",
     "markdown-it-anchor": "^8.6.7",
     "postcss": "^8.4.31",

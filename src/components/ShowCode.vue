@@ -81,7 +81,7 @@
 <script setup lang="ts">
 import Prism from "prismjs";
 import { copyCode } from '../utils/tool.utils'
-import "../../assets/style/prism.css";
+import "../assets/style/prism.css";
 
 const props = defineProps({
   linkCode: {

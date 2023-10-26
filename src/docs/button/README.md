@@ -1,5 +1,5 @@
 <script setup>
-// import baseButton from './baseButton.vue';
+import baseButton from './components/baseButton.vue';
 // import disabledButtonShow from './disabledButtonShow.vue';
 // import textButtonShow from './textButtonShow.vue';
 // import iconButtonShow from './iconButtonShow.vue';
@@ -15,6 +15,9 @@
 
 使用`type`  `plain` `round` `circle` 来定义按钮的样式。
 
+<show-code showPath="button/baseButton">
+  <base-button></base-button>
+</show-code>
 
 ## 禁用状态
 
