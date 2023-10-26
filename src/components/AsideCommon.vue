@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { IRouterType } from "@/router/routerConfig";
+import { IRouterType } from "../router/routerConfig";
 
 defineProps({
   asideData: {
