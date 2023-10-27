@@ -1,58 +1,58 @@
-import { CSSProperties, computed, defineComponent, provide } from "vue";
-import { rowGutter } from "../../../utils/tokens/tokens";
-
+import { computed, defineComponent, provide } from 'vue'
+import '../style/row.scss'
+import { rowGutter } from '../../../utils/tokens/tokens'
 const props = {
   tag: {
     type: String,
-    default: "div",
+    default: 'div'
   },
   gutter: {
     type: Number,
-    default: 0,
+    default: 0
   },
   justify: {
     type: String,
-    default: "start",
+    default: 'start'
   },
   align: {
     type: String,
-    default: "top",
-  },
-};
+    default: 'top'
+  }
+}
 
 const VirRow = defineComponent({
-  name: "VirRow",
-  props,
+  name: 'VirRow',
+  props: props,
   setup(props, { slots }) {
     provide(
       rowGutter,
       computed(() => props.gutter)
-    );
-    //间距
+    )
+    // 间距
     const style = computed(() => {
       const styles = {
-        "margin-left": "",
-        "margin-right": "",
-      };
+        'margin-left': '',
+        'margin-right': ''
+      }
       if (props.gutter) {
-        styles["margin-left"] = `${props.gutter / 2}px`;
-        styles["margin-right"] = styles["margin-left"];
+        styles['margin-left'] = `${props.gutter / 2}px`
+        styles['margin-right'] = styles['margin-left']
       }
       return styles
-    });
-    //justfy align
-    const flex = computed(() => {
-      const justfyClass = `justfy-${props.justify}`
-      const alignClass = `items-${props.align}`
-      return [justfyClass, alignClass]
     })
-    return () => {
-      //@ts-ignore
-      <props.tag class={['bl-row', ...flex.value]} style={style.value}>
+    // justify align
+    const flex = computed(() => {
+      const justifyClass = `justify-${props.justify}`
+      const alignClass = `items-${props.align}`
+      return [justifyClass, alignClass]
+    })
+    return () => (
+      // @ts-ignore
+      <props.tag class={['vir-row', ...flex.value]} style={style.value}>
         {slots.default?.()}
       </props.tag>
-    };
-  },
-});
+    )
+  }
+})
 
-export default VirRow;
+export default VirRow

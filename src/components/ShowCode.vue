@@ -7,7 +7,7 @@
     <!-- 工具区 -->
     <div class="border-t h-10 flex items-center justify-end p-2">
       <ul class="flex">
-        <li title="去github查看" class="code-preview-icon">
+        <!-- <li title="去github查看" class="code-preview-icon">
           <a :href="linkCode">
             <svg
               class="icon-svg"
@@ -21,7 +21,7 @@
               ></path>
             </svg>
           </a>
-        </li>
+        </li> -->
         <li title="复制" class="code-preview-icon">
           <svg
             class="icon-svg"
@@ -91,7 +91,7 @@ const props = defineProps({
   },
   showPath: {
     type: String,
-    default: "button/baseButton",
+    default: "button/components/baseButton",
   },
 });
 
@@ -107,7 +107,7 @@ onMounted(async () => {
   if (isDev) {
     /* @vite-ignore */
     const data: any = await import(
-      /* @vite-ignore */ `../../docs/${props.showPath}.vue?raw`
+      /* @vite-ignore */ `../docs/${props.showPath}.vue?raw`
     );
     sourceCode.value = data.default;
   } else {

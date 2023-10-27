@@ -26,7 +26,7 @@ const props = {
 
 const VirCol = defineComponent({
   name: "VirCol",
-  props,
+  props: props,
   setup(props, { slots }) {
     const gutter = inject(
       rowGutter,
@@ -42,6 +42,14 @@ const VirCol = defineComponent({
           paddingRight: `${gutter.value / 2}px`,
         };
         all = { ...all, ...padding };
+      }
+      //占位
+      if (props.span) {
+        const marginWidth = {
+          maxWidth: `${getPercentage(props.span / 24)}%`,
+          flexBasis: `${getPercentage(props.span / 24)}%`,
+        };
+        all = { ...all, ...marginWidth };
       }
       //offset
       if (props.offset) {
@@ -61,13 +69,13 @@ const VirCol = defineComponent({
       }
       return all;
     });
-    return () => {
-      //@ts-ignore
+    return () => (
+      // @ts-ignore
       <props.tag class="vir-col" style={style.value}>
-        { slots.default?.() }
+        {slots.default?.()}
       </props.tag>
-    }
+    );
   },
 });
 
-export default VirCol
+export default VirCol;
