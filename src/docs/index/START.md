@@ -12,11 +12,11 @@
 import {createApp} from 'vue'
 import App from './App.vue'
 // 引入组件
-import VirUi from 'virtual-ui'
+import VirUi from 'freeze-virtual-ui'
 // 引入图标 没有下载需要npm下载
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 // 引入样式
-import 'virtual-ui/VirUi/style.css'
+import 'freeze-virtual-ui/VirUi/style.css'
 // 注册组件
 const app = createApp(App).use(VirUi)
 // 注册图标

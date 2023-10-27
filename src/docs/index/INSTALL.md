@@ -14,11 +14,11 @@ coding...
 # 选择一个你要的包管理器
 
 # NPM
-$ npm install biluo-ui --save
+$ npm install freeze-virtual-ui --save
 
 # Yarn
-$ yarn add biluo-ui
+$ yarn add freeze-virtual-ui
 
 # pnpm
-$ pnpm install biluo-ui
+$ pnpm install freeze-virtual-ui
 ```
