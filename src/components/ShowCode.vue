@@ -87,7 +87,7 @@ const props = defineProps({
   linkCode: {
     type: String,
     default:
-      "https://gitee.com/biluo_x/biluo-ui/tree/develop/packages/components",
+      "https://gitee.com/ye_chao111/virtual-ui/tree/develop/packages/components",
   },
   showPath: {
     type: String,
