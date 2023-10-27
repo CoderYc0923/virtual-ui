@@ -7,7 +7,7 @@
       <router-link to="/">
         <img
           class="h-7 w-13"
-          src="https://element-plus.org/images/element-plus-logo.svg"
+          src="/slogin.svg"
         />
       </router-link>
     </div>
