@@ -1,4 +1,5 @@
 <template>
+  <shit-navigation :aside-data="asideData" :base-link="baseLink" />
   <div
     id="doc-page"
     class="w-full m-auto flex px-8 xl:w-1200 xl:px-0 box-border"
@@ -40,6 +41,7 @@ import { throttle } from "../../packages/utils/common/common";
 import AsideCommon from "./AsideCommon.vue";
 import NextAside from "./NextAside.vue";
 import CatalogueCommon from "./CatalogueCommon.vue";
+import ShitNavigation from "./ShitNavigation.vue";
 
 const props = defineProps({
   asideKeys: {

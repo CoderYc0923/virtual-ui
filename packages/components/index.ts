@@ -4,15 +4,17 @@ export * from "./button";
 export * from "./icon";
 export * from "./layout";
 export * from "./container";
+export * from "./drawer";
 
 import button from "./button";
 import icon from "./icon";
 import layout from "./layout";
 import container from "./container";
+import drawer from "./drawer";
 
 import "../../src/assets/style/index.scss";
 
-const components = [button, icon, layout, container];
+const components = [button, icon, layout, container, drawer];
 
 export default {
   install(app: App) {

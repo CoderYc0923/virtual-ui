@@ -7,18 +7,23 @@ export const baseComponent: RouteRecordRaw[] = [
     component: () => import("../../docs/button/README.md"),
   },
   {
-    path: 'layout',
-    meta: { title: 'Layout 布局' },
-    component: () => import('../../docs/layout/README.md')
+    path: "layout",
+    meta: { title: "Layout 布局" },
+    component: () => import("../../docs/layout/README.md"),
   },
   {
-    path: 'container',
-    meta: { title: 'Container 容器' },
-    component: () => import('../../docs/container/README.md')
+    path: "container",
+    meta: { title: "Container 容器" },
+    component: () => import("../../docs/container/README.md"),
   },
   {
-    path: 'icon',
-    meta: { title: 'Icon 图标' },
-    component: () => import('../../docs/icon/README.md')
+    path: "icon",
+    meta: { title: "Icon 图标" },
+    component: () => import("../../docs/icon/README.md"),
+  },
+  {
+    path: "drawer",
+    meta: { title: "Drawer 抽屉" },
+    component: () => import("../../docs/drawer/README.md"),
   },
 ];
