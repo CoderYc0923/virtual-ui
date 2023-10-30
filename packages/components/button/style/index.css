@@ -22,7 +22,7 @@
 
 /*primary 类型按钮*/
 .vir-button-primary {
-    @apply bg-primary text-white;
+    @apply bg-primary text-white !important;
 }
 
 .vir-button-primary:not(.vir-is-disabled) {
@@ -32,15 +32,15 @@
 
 /*primary 类型朴素按钮*/
 .vir-button-primary.vir-is-plain {
-    @apply border-sky-400 text-primary bg-sky-200;
+    @apply border-sky-400 text-primary bg-sky-200 !important;
 }
 
 .vir-button-primary.vir-is-plain:not(.vir-is-disabled) {
-    @apply hover:bg-primary hover:text-white;
+    @apply hover:bg-primary hover:text-white !important;
 }
 
 .vir-button-success {
-    @apply bg-success text-white;
+    @apply bg-success text-white !important;
 }
 
 .vir-button-success:not(.vir-is-disabled) {
@@ -49,7 +49,7 @@
 }
 
 .vir-button-success.vir-is-plain {
-    @apply text-success bg-green-200 border-green-400;
+    @apply text-success bg-green-200 border-green-400 !important;
 }
 
 .vir-button-success.vir-is-plain:not(.vir-is-disabled) {
@@ -57,16 +57,16 @@
 }
 
 .vir-button-info {
-    @apply bg-info text-white;
+    @apply bg-info text-white !important;
 }
 
 .vir-button-info:not(.vir-is-disabled) {
     @apply hover:bg-opacity-80;
-    @apply active:bg-gray-600;
+    @apply active:bg-gray-600 !important;
 }
 
 .vir-button-info.vir-is-plain {
-    @apply text-info bg-gray-200 border-gray-400;
+    @apply text-info bg-gray-200 border-gray-400 !important;
 }
 
 .vir-button-info.vir-is-plain:not(.vir-is-disabled) {
@@ -74,7 +74,7 @@
 }
 
 .vir-button-warning {
-    @apply bg-warning text-white;
+    @apply bg-warning text-white !important;
 }
 
 .vir-button-warning:not(.vir-is-disabled) {
@@ -83,7 +83,7 @@
 }
 
 .vir-button-warning.vir-is-plain {
-    @apply text-warning bg-orange-200 border-orange-400;
+    @apply text-warning bg-orange-200 border-orange-400 !important;
 }
 
 .vir-button-warning.vir-is-plain:not(.vir-is-disabled) {
@@ -91,7 +91,7 @@
 }
 
 .vir-button-danger {
-    @apply bg-danger text-white;
+    @apply bg-danger text-white !important;
 }
 
 .vir-button-danger:not(.vir-is-disabled) {
@@ -100,7 +100,7 @@
 }
 
 .vir-button-danger.vir-is-plain {
-    @apply text-danger bg-red-200 border-red-400;
+    @apply text-danger bg-red-200 border-red-400 !important;
 }
 
 .vir-button-danger.vir-is-plain:not(.vir-is-disabled) {

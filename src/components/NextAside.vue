@@ -50,6 +50,6 @@ const useNext = computed(() => {
 
 <style scoped>
 .next-com {
-  @apply flex items-center text-primary hover:text-sky-300 text-sm;
+  @apply flex items-center text-primary hover:text-lightBlue-300 text-sm;
 }
 </style>

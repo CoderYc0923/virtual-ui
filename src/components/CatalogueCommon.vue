@@ -33,10 +33,10 @@ const gotoLink = (linkId: string) => {
   @apply mb-2 text-gray-600 text-xs;
 }
 .select-link {
-  @apply text-sky-400 relative;
+  @apply text-lightBlue-400 relative;
   &:after {
     content: "";
-    @apply absolute -left-2 h-5/6 w-1 bg-sky-400 rounded top-1/2 transform -translate-y-2/4;
+    @apply absolute -left-2 h-5/6 w-1 bg-lightBlue-400 rounded top-1/2 transform -translate-y-2/4;
   }
 }
 </style>

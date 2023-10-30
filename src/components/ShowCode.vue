@@ -64,14 +64,14 @@
           @click="openAndCloseCode"
         >
           <svg
-            class="h-4 w-4 group-hover:text-sky-300 mr-2 transition"
+            class="h-4 w-4 group-hover:text-lightBlue-300 mr-2 transition"
             viewBox="0 0 1024 1024"
             xmlns="http://www.w3.org/2000/svg"
             data-v-65a7fb6c=""
           >
             <path fill="currentColor" d="M512 320 192 704h639.936z"></path>
           </svg>
-          <span class="group-hover:text-sky-300 transition">隐藏</span>
+          <span class="group-hover:text-lightBlue-300 transition">隐藏</span>
         </div>
       </div>
     </transition>

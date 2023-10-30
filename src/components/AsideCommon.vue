@@ -7,7 +7,7 @@
         <div :class="{
           'select-router-item':
             localRoute === baseLink + '/' + routerItem.path,
-        }" class="text-sm hover:text-sky-300 p-2 pl-4 text-gray-500 rounded-lg font-light transition">
+        }" class="text-sm hover:text-lightBlue-300 p-2 pl-4 text-gray-500 rounded-lg font-light transition">
           {{ routerItem.meta?.title }}
         </div>
       </router-link>
@@ -39,6 +39,6 @@ onBeforeRouteUpdate((to) => {
 
 <style>
 .select-router-item {
-  @apply bg-sky-300 text-sky-400 hover:text-sky-400 font-bold bg-opacity-20 font-normal !important;
+  @apply bg-lightBlue-300 text-lightBlue-400 hover:text-lightBlue-400 font-bold bg-opacity-20 font-normal !important;
 }
 </style>
