@@ -5,6 +5,7 @@ export * from "./icon";
 export * from "./layout";
 export * from "./container";
 export * from "./drawer";
+export * from './message-box';
 
 import button from "./button";
 import icon from "./icon";

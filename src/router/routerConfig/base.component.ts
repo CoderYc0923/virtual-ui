@@ -26,4 +26,9 @@ export const baseComponent: RouteRecordRaw[] = [
     meta: { title: "Drawer 抽屉" },
     component: () => import("../../docs/drawer/README.md"),
   },
+  {
+    path: 'messagebox',
+    meta: { title: 'MessageBox 弹框' },
+    component: () => import('../../docs/messagebox/README-box.md')
+  },
 ];
