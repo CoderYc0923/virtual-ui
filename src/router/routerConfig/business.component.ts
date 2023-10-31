@@ -11,4 +11,9 @@ export const businessComponent: RouteRecordRaw[] = [
     meta: { title: "InfiniteScroll 无限滚动" },
     component: () => import("../../docs/infinitescroll/README.md"),
   },
+  {
+    path: "waterfall-flow",
+    meta: { title: "WaterfallFlow 瀑布流" },
+    component: () => import("../../docs/waterfallflow/README.md"),
+  },
 ];

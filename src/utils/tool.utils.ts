@@ -39,9 +39,8 @@ const getColor = () => {
 };
 
 export const createImdElement = () => {
-  var w = getRandom(300, 30);
-  var h = getRandom(400, 40);
+  var h = getRandom(100, 30);
   var bg = getColor();
-  var str = `width:${w}px;height:${h}px;background-color:${bg}`;
-  return str
+  var str = `height:${h}px;background-color:${bg};`;
+  return str;
 };

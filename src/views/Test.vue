@@ -4,8 +4,16 @@
     <hr style="margin-bottom: 30px" />
     <div>
       <!-- 组件测试可以在这里测 -->
-      <vir-waterfall-flow>
-        <div id="div-item" v-for="(item, index) in divs" :key="index" :style="htmls[index]"></div>
+      <vir-waterfall-flow
+        :data-list="dataList"
+        :columns="5"
+        :width="1200"
+        :height="800"
+        :gap="10"
+      >
+        <template #slot-scope="{ slotProps }">
+          <div :style="slotProps.data.style"></div>
+        </template>
       </vir-waterfall-flow>
     </div>
   </div>
@@ -14,13 +22,11 @@
 <script setup lang="ts">
 import { createImdElement } from "../utils/tool.utils";
 
-const htmls = ref<string[]>([])
-const divs = ref<number[]>([])
+const dataList = ref<any>([]);
 
 const init = () => {
   for (let i = 0; i < 90; i++) {
-    htmls.value[i] = createImdElement();
-    divs.value[i] = i
+    dataList.value.push({ style: createImdElement() });
   }
 };
 
