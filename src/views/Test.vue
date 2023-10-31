@@ -4,45 +4,26 @@
     <hr style="margin-bottom: 30px" />
     <div>
       <!-- 组件测试可以在这里测 -->
-      <vir-infinite-scroll
-        @reached-trigger="triggerHnadle"
-        :loading="isLoading"
-      >
-        <div
-          class="tab-item h-8 text-center leading-8 shrink-0"
-          v-for="(item, index) in scrollList"
-          :key="index"
-        >
-          {{ item }}
-        </div>
-        <!-- <template #loadingIcon>111</template> -->
-      </vir-infinite-scroll>
+      <vir-waterfall-flow>
+        <div id="div-item" v-for="(item, index) in divs" :key="index" :style="htmls[index]"></div>
+      </vir-waterfall-flow>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const scrollList = ref<number[]>([]);
-const isLoading = ref(false);
-const isFinish = ref(false);
+import { createImdElement } from "../utils/tool.utils";
+
+const htmls = ref<string[]>([])
+const divs = ref<number[]>([])
+
 const init = () => {
   for (let i = 0; i < 90; i++) {
-    scrollList.value.push(i);
+    htmls.value[i] = createImdElement();
+    divs.value[i] = i
   }
 };
-const triggerHnadle = () => {
-  console.log("触发");
-  if (!isFinish.value) {
-    isLoading.value = true;
-    setTimeout(() => {
-      for (let i = 90; i < 180; i++) {
-        scrollList.value.push(i);
-      }
-      isFinish.value = true;
-      isLoading.value = false
-    }, 1000);
-  }
-};
+
 onMounted(() => {
   init();
 });

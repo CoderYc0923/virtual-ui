@@ -23,3 +23,25 @@ export const gotoTop = () => {
     window.scrollTo(0, topOffset - topOffset / 6);
   }
 };
+
+export const getRandom = (max: number, min?: any) => {
+  if (isNaN(min)) min = 0;
+  var num = Math.floor(Math.random() * (max - min));
+  return num + min;
+};
+
+const getColor = () => {
+  var color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += getRandom(16).toString(16);
+  }
+  return color;
+};
+
+export const createImdElement = () => {
+  var w = getRandom(300, 30);
+  var h = getRandom(400, 40);
+  var bg = getColor();
+  var str = `width:${w}px;height:${h}px;background-color:${bg}`;
+  return str
+};
