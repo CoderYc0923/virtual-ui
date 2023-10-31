@@ -1,1 +1,1 @@
-export const asideKeys = ["index", "baseComponents"];
+export const asideKeys = ["index", "baseComponents","businessComponents"];

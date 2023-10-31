@@ -9,26 +9,28 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, reactive, ref } from "vue";
+import { computed } from "vue";
 import { useNameSpace } from "../../../utils/hooks/hooks.util";
-
-type ISizeInfo = {
-  w: number;
-  h: number;
-};
 
 const ns = useNameSpace("row-scroll");
 
-const props = defineProps<{
-  sizeInfo: ISizeInfo;
-}>();
+const props = defineProps({
+  width: {
+    type: Number,
+    default: 300
+  },
+  height: {
+    type: Number,
+    default: 32
+  },
+});
 
 const sw = computed(() => {
-  return props.sizeInfo.w;
+  return props.width;
 });
 
 const sh = computed(() => {
-  return props.sizeInfo.h;
+  return props.height;
 });
 </script>
 

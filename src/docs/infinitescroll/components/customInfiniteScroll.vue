@@ -1,28 +1,25 @@
 <template>
-  <div class="w-full m-auto flex flex-col px-8 xl:w-1200 xl:px-0 box-border">
-    <h1>测试靶场</h1>
-    <hr style="margin-bottom: 30px" />
-    <div>
-      <!-- 组件测试可以在这里测 -->
-      <vir-infinite-scroll
-        @reached-trigger="triggerHnadle"
-        :loading="isLoading"
-      >
-        <div
-          class="tab-item h-8 text-center leading-8 shrink-0"
-          v-for="(item, index) in scrollList"
-          :key="index"
-        >
-          {{ item }}
-        </div>
-        <!-- <template #loadingIcon>111</template> -->
-      </vir-infinite-scroll>
+  <vir-infinite-scroll
+    @reached-trigger="triggerHnadle"
+    :loading="isLoading"
+    :reachedText="reachedText"
+    :targetId="'goal-help1'"
+  >
+    <div
+      class="tab-item h-8 text-center leading-8 shrink-0"
+      v-for="(item, index) in scrollList"
+      :key="index"
+    >
+      {{ item }}
     </div>
-  </div>
+    <template #loadingIcon>我是自定义内容</template>
+  </vir-infinite-scroll>
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from "vue";
 const scrollList = ref<number[]>([]);
+const reachedText = "结束咯！";
 const isLoading = ref(false);
 const isFinish = ref(false);
 const init = () => {
@@ -31,7 +28,6 @@ const init = () => {
   }
 };
 const triggerHnadle = () => {
-  console.log("触发");
   if (!isFinish.value) {
     isLoading.value = true;
     setTimeout(() => {
@@ -39,7 +35,7 @@ const triggerHnadle = () => {
         scrollList.value.push(i);
       }
       isFinish.value = true;
-      isLoading.value = false
+      isLoading.value = false;
     }, 1000);
   }
 };
