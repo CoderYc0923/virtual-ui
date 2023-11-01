@@ -30,17 +30,27 @@ const props = defineProps({
     default: 2,
   },
   width: {
-    type: Number,
-    default: 300,
+    type: [Number,String],
+    default: '100%',
   },
   height: {
-    type: Number,
-    default: 400,
+    type: [Number,String],
+    default: '100%',
   },
   gap: {
     type: Number,
     default: 5,
   },
+  overflow: {
+    type: String,
+    default: 'auto',
+    validator: (value: string) => {
+      return [
+        'auto',
+        'visible'
+      ].includes(value)
+    }
+  }
 });
 
 const girdStyle = ref({});
@@ -63,10 +73,12 @@ watch(
       "grid-template-columns": `repeat(auto-fill, calc(${calcProportion(
         props.columns
       )}% - ${props.gap}px))`,
-      width: props.width + "px",
-      height: props.height + "px",
+      width: (typeof props.width === 'string') ? props.width : props.width + 'px',
+      overflow: props.overflow
     };
-    console.log(girdStyle.value);
+    if (props.overflow === 'auto') {
+      girdStyle.value.height = (typeof props.height === 'string') ? props.height : props.height + 'px'
+    }
   },
   {
     immediate: true,
@@ -80,6 +92,5 @@ watch(
   grid-auto-rows: minmax(1px, 1px);
   align-items: start;
   justify-content: space-between;
-  overflow: auto;
 }
 </style>

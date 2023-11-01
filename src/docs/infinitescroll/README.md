@@ -29,8 +29,8 @@
 
 | 属性     | 说明     | 类型                        | 可选值 | 默认值       |
 | -------- | -------- | --------------------------- | ------ | ------------ |
-| width | 容器宽 | number | ---    | 300 |
-| height | 容器高 | number | ---    | 400 |
+| width | 容器宽 | number、string | ---    | 100% |
+| height | 容器高 | number、string | ---    | 100% |
 | loading | 是否为加载中状态 | boolean | ---    | false |
 | loading-icon | 自定义加载中图标 | string | 参考icon组件    | Loading |
 | iconColor | 加载中图标颜色 | string | ---    | black |

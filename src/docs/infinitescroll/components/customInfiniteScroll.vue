@@ -1,6 +1,8 @@
 <template>
   <vir-infinite-scroll
     @reached-trigger="triggerHnadle"
+    :width="300"
+    :height="400"
     :loading="isLoading"
     :reachedText="reachedText"
     :targetId="'goal-help1'"

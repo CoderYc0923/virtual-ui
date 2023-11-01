@@ -1,5 +1,5 @@
 <template>
-  <div :class="[ns.base(), 'overflow-y-auto']">
+  <div :class="[ns.base(), 'overflow-y-auto']" :style="scrollStyle">
     <slot />
     <div :id="targetId" class="text-center text-gray-400 text-xs">
       <slot name="loadingIcon" v-if="isLoading">
@@ -19,12 +19,12 @@ const ns = useNameSpace("infinite-scroll");
 
 const props = defineProps({
   width: {
-    type: Number,
-    default: 300,
+    type: [Number,String],
+    default: '100%',
   },
   height: {
-    type: Number,
-    default: 400,
+    type: [Number,String],
+    default: '100%',
   },
   reachedText: {
     type: String,
@@ -58,12 +58,11 @@ const emit = defineEmits<{
 
 const io = ref();
 
-const sw = computed(() => {
-  return props.width;
-});
-
-const sh = computed(() => {
-  return props.height;
+const scrollStyle = computed(() => {
+  return {
+    width: (typeof props.width === 'string') ? props.width : props.width + 'px',
+    height: (typeof props.height === 'string') ? props.height : props.height + 'px'
+  }
 });
 
 const isLoading = computed(() => {
@@ -95,8 +94,6 @@ onUnmounted(() => {
 <style lang="scss">
 @import "../style/index.css";
 .vir-infinite-scroll {
-  width: calc(v-bind("sw") * 1px);
-  height: calc(v-bind("sh") * 1px);
   &::-webkit-scrollbar {
     width: 0;
   }

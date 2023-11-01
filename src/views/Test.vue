@@ -4,17 +4,23 @@
     <hr style="margin-bottom: 30px" />
     <div>
       <!-- 组件测试可以在这里测 -->
-      <vir-waterfall-flow
-        :data-list="dataList"
-        :columns="5"
-        :width="1200"
-        :height="800"
-        :gap="10"
+      <vir-infinite-scroll
+        @reached-trigger="triggerHnadle"
+        :loading="isLoading"
+        :width="800"
+        :height="600"
       >
-        <template #slot-scope="{ slotProps }">
-          <div :style="slotProps.data.style"></div>
-        </template>
-      </vir-waterfall-flow>
+        <vir-waterfall-flow
+          :data-list="dataList"
+          :columns="5"
+          :gap="10"
+          :overflow="'visible'"
+        >
+          <template #slot-scope="{ slotProps }">
+            <div :style="slotProps.data.style"></div>
+          </template>
+        </vir-waterfall-flow>
+      </vir-infinite-scroll>
     </div>
   </div>
 </template>
@@ -23,6 +29,21 @@
 import { createImdElement } from "../utils/tool.utils";
 
 const dataList = ref<any>([]);
+const isLoading = ref(false);
+const isFinish = ref(false);
+
+const triggerHnadle = () => {
+  if (!isFinish.value) {
+    isLoading.value = true;
+    setTimeout(() => {
+      for (let i = 90; i < 180; i++) {
+        dataList.value.push({ style: createImdElement() });
+      }
+      isFinish.value = true;
+      isLoading.value = false;
+    }, 1000);
+  }
+};
 
 const init = () => {
   for (let i = 0; i < 90; i++) {

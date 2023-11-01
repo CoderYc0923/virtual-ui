@@ -1,5 +1,10 @@
 <template>
-  <vir-infinite-scroll @reached-trigger="triggerHnadle" :loading="isLoading">
+  <vir-infinite-scroll
+    @reached-trigger="triggerHnadle"
+    :loading="isLoading"
+    :width="300"
+    :height="400"
+  >
     <div
       class="tab-item h-8 text-center leading-8 shrink-0"
       v-for="(item, index) in scrollList"
