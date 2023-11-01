@@ -13,6 +13,23 @@
         @play-end="handlePlayEnd"
         @list-end="handleListEnd"
       >
+        <template #dm="{ danmu, index }">
+          <div class="damu-item" :class="[danmu?.isMe ? 'btn-item--me' : '']">
+            <img
+              class="danmu-item--avater"
+              v-if="danmu?.avatar"
+              :src="danmu.avatar"
+              alt=""
+            />
+            <div>{{ danmu?.text }}</div>
+          </div>
+        </template>
+        <template #suspend="{ danmu, index }">
+          <div class="danmu-suspend">
+            <div class="item" @click="handleAdd(danmu)">➕</div>
+            <div class="item">👍</div>
+          </div>
+        </template>
       </vir-barrage>
       <div class="controler-content">
         <vir-row class="mb-4">
@@ -26,11 +43,13 @@
         </vir-row>
         <vir-row class="mb-4">
           循环：
-          <vir-button>{{ config.useSlot ? "插槽" : "文字" }}模式</vir-button>
-          <vir-button
+          <vir-button @click="handleDanmuMode('slot')"
+            >{{ config.useSlot ? "插槽" : "文字" }}模式</vir-button
+          >
+          <vir-button @click="handleDanmuMode('suspend')"
             >{{ config.isSuspend ? "已开启" : "已关闭" }}悬浮</vir-button
           >
-          <vir-button
+          <vir-button @click="handleDanmuMode('suspendslot')"
             >{{
               config.useSuspendSlot ? "已开启" : "已关闭"
             }}悬浮插槽</vir-button
@@ -43,15 +62,15 @@
         </vir-row>
         <vir-row class="mb-4">
           速度：
-          <vir-button>减速</vir-button>
-          <vir-button>加速</vir-button>
+          <vir-button @click="handleDanmuSpeeds(-10)">减速</vir-button>
+          <vir-button @click="handleDanmuSpeeds(10)">加速</vir-button>
           &nbsp;&nbsp;&nbsp;当前速度：{{ config.speeds }}像素/s
         </vir-row>
         <vir-row class="mb-4">
           轨道：
-          <vir-button>-1</vir-button>
-          <vir-button>+1</vir-button>
-          <vir-button>满屏</vir-button>
+          <vir-button @click="handleDanmuChannels(-1)">-1</vir-button>
+          <vir-button @click="handleDanmuChannels(1)">+1</vir-button>
+          <vir-button @click="handleDanmuChannels(0)">满屏</vir-button>
           &nbsp;&nbsp;&nbsp;当前轨道数：{{ config.channels }}
         </vir-row>
         <vir-row class="mb-4">
@@ -62,7 +81,7 @@
             placeholder="输入弹幕内容"
             v-model="inputDanmu"
           />
-          <vir-button>发送</vir-button>
+          <vir-button @click="handleAddDanmu">发送</vir-button>
         </vir-row>
       </div>
     </div>
@@ -115,9 +134,75 @@ const handlePlayEnd = (index: number) => {
 };
 
 const handleDanmuLoop = () => {
-  config.loop = !config.loop
-  handleDanmu('reset')
-}
+  config.loop = !config.loop;
+  handleDanmu("reset");
+};
+
+const handleDanmuSpeeds = (speed: number) => {
+  config.speeds =
+    config.speeds + speed > 0 ? config.speeds + speed : config.speeds;
+  handleDanmu("reset");
+};
+
+const handleDanmuChannels = (count: number) => {
+  if (count === 0) config.channels = 0;
+  else
+    config.channels =
+      config.channels <= 0 ? config.channels : config.channels + count;
+  handleDanmu("reset");
+};
+
+const handleAddDanmu = () => {
+  if (!inputDanmu.value) return;
+  let dm: string | dm = "";
+  if (config.useSlot) {
+    dm = {
+      text: inputDanmu.value,
+      avatar: getImageUrl(
+        `default-avatar (${Math.ceil(Math.random() * 24)}).png`
+      ),
+      isMe: true,
+    };
+  } else {
+    dm = inputDanmu.value;
+  }
+  barrageRef.value?.insert(dm);
+  inputDanmu.value = "";
+};
+
+const handleDanmuMode = (model: string) => {
+  const modelMap: { [key: string]: any } = {
+    slot: handleModeSlot,
+    suspend: handleModeSuspend,
+    suspendslot: handleModeSuspendSlot,
+  };
+  modelMap[model]();
+};
+
+const handleModeSlot = () => {
+  config.useSlot = !config.useSlot;
+  config.useSlot
+    ? (Barrages.value = getBarrages())
+    : (Barrages.value = barrages);
+
+  console.log(Barrages.value);
+};
+
+const handleModeSuspend = () => {
+  config.isSuspend = !config.isSuspend;
+};
+
+const handleModeSuspendSlot = () => {
+  config.useSuspendSlot = !config.useSuspendSlot;
+};
+
+const handleAdd = (dm: dm) => {
+  const newDm: dm = {
+    ...dm,
+    isMe: true,
+  };
+  barrageRef.value?.insert(newDm);
+};
 
 const handleDanmu = (type: string) => {
   switch (type) {
@@ -197,5 +282,46 @@ onUnmounted(() => {
   color: skyblue;
   font-size: 12px;
   line-height: 32px;
+}
+
+.danmu-item {
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 30px;
+  padding: 0 10px;
+  box-sizing: border-box;
+
+  &:hover {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.8);
+    border: none;
+  }
+
+  &--avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+}
+
+.btn-item--me {
+  border: 1px solid #888;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.danmu-suspend {
+  display: flex;
+  align-items: center;
+  border-radius: 0 30px 30px 0;
+
+  .item {
+    padding-left: 10px;
+
+    &:nth-last-child(1):active {
+      transform: scale(1.2);
+    }
+  }
 }
 </style>

@@ -306,9 +306,13 @@ const getChannelIndex = (el: HTMLDivElement): number => {
         }
       }
     } else {
-      danChannel.value[i] = [el]
-      el.addEventListener('animationend', () => danChannel.value[i].splice(0, 1), { once: true })
-      return i % dmChannels.value
+      danChannel.value[i] = [el];
+      el.addEventListener(
+        "animationend",
+        () => danChannel.value[i].splice(0, 1),
+        { once: true }
+      );
+      return i % dmChannels.value;
     }
   }
   return -1;
@@ -412,7 +416,7 @@ const clear = () => {
   danChannel.value = {};
   dmContainerRef.value.innerHTML = "";
   paused.value = true;
-  hidden.value = true;
+  hidden.value = false;
   clearTimer();
   index.value = 0;
   suspendList.value = [];
