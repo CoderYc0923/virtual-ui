@@ -2,7 +2,7 @@
   "name": "freeze-virtual-ui",
   "private": false,
   "author": "yechao. Email: 1151062047@qq.com",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Make the UI component library you want to make.",
   "keywords": "vue typescript tailwindcss ui element",
   "files": [
