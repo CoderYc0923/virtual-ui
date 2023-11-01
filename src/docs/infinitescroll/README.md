@@ -25,7 +25,7 @@
 <customInfiniteScroll></customInfiniteScroll>
 </show-code>
 
-## Button 属性
+## InfiniteScroll 属性
 
 | 属性     | 说明     | 类型                        | 可选值 | 默认值       |
 | -------- | -------- | --------------------------- | ------ | ------------ |
@@ -38,7 +38,13 @@
 | hideReachedText | 是否隐藏结束文案 | boolean | ---    | false |
 | targetId | 被观察对象唯一ID值 | string | ---    | goal-help |
 
-## RowScroll 插槽
+## InfiniteScroll 事件
+
+| 事件名 | 说明                                    |
+| ------ | --------------------------------------- |
+| reached-trigger    | 触底时回调函数 |
+
+## InfiniteScroll 插槽
 
 | 插槽名 | 说明                                    |
 | ------ | --------------------------------------- |

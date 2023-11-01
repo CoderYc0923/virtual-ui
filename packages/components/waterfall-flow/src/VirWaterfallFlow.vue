@@ -53,7 +53,7 @@ const props = defineProps({
   }
 });
 
-const girdStyle = ref({});
+const girdStyle = ref<any>({});
 const showDataList = ref<any>([]);
 
 const calcProportion = (columns: number) => {
@@ -63,7 +63,7 @@ const calcProportion = (columns: number) => {
 watch(
   () => props.dataList,
   (value) => {
-    showDataList.value = value.map((item, index) => {
+    showDataList.value = value.map((item:any, index) => {
       return {
         ...item,
         dataIndex: index,

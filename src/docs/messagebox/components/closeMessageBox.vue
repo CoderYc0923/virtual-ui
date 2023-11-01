@@ -5,7 +5,6 @@
 <script setup lang="ts">
 import VirButton from "../../../../packages/components/button/src/VirButton.vue";
 import { MessageBoxFn } from "../../../../packages/components/message-box";
-import { Action } from "../../../../packages/components/message-box/src/messageBox.help";
 
 const open = () => {
   MessageBoxFn("你将删除这个文件，是否继续", "Waring", {
