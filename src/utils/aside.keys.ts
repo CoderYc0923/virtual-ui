@@ -1,7 +1,1 @@
-export const asideKeys = [
-  "index",
-  "baseComponents",
-  // "formComponents",
-  // "dataShowComponents",
-  // "feedBackComponents",
-];
+export const asideKeys = ["index", "baseComponents","businessComponents"];

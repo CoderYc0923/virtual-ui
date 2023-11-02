@@ -1,37 +1,25 @@
-# virtual-ui
+# 开始
 
-#### 介绍
-自研UI组件库
+欢迎使用 VirtualUI
 
-#### 软件架构
-软件架构说明
+## 介绍
 
+Make the UI component library you want to make.
 
-#### 安装教程
+技术栈 **vue3, typescript, vite, vite-plugin-md, tailwindcss, scss**
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+## 已经实现组件
 
-#### 使用说明
+**基础组件:**
+`button 按钮` `layout 布局` `container 容器` `icon 图标` `drawer 抽屉` `message box 弹窗`<br>
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+**业务组件:**
+`row scroll 横向滚动` `infinite scroll 无限滚动` `waterfall flow 瀑布流` `barrage 弹幕插件`<br>
 
-#### 参与贡献
+## 版本
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+> **版本：0.2.0**<br>
+> 更新内容：<br>
 
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+    1.新增基础组件`drawer 抽屉` `message box 弹窗`<br>
+    2.新增业务组件`row scroll 横向滚动` `infinite scroll 无限滚动` `waterfall flow 瀑布流` `barrage 弹幕插件`<br>

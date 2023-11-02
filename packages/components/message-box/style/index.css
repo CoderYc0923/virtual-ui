@@ -1,0 +1,29 @@
+.vir-message-box {
+    width: 420px;
+    z-index: 99;
+    @apply absolute top-1/2 left-2/4 px-4 py-2 bg-white transform -translate-x-1/2 -translate-y-1/2;
+    @apply rounded;
+}
+.close-btn {
+    width: 18px;
+    color: #807f7f;
+    height: 18px;
+}
+.message-box-enter-active {
+    animation: 0.5s message-open-close;
+}
+.message-box-leave-active {
+    animation: 0.5s message-open-close;
+    animation-direction: reverse;
+}
+
+@keyframes message-open-close {
+    from {
+        transform: translateY(-40px) translateX(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(-50%) translateX(-50%);
+        opacity: 1;
+    }
+}

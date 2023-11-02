@@ -5,19 +5,20 @@
       class="next-com"
       :to="`${baseLink}/${useNext.prev.path}`"
     >
-      <span>{{ useNext.prev.meta.title }}</span>
+      <span>{{ useNext.prev.meta ? useNext.prev.meta.title : '' }}</span>
     </router-link>
     <router-link
       v-if="useNext.next"
       class="next-com ml-auto"
       :to="`${baseLink}/${useNext.next.path}`"
     >
-      <span>{{ useNext.next.meta.title }}</span>
+      <span>{{ useNext.next.meta ? useNext.next.meta.title : '' }}</span>
     </router-link>
   </div>
 </template>
 
 <script setup lang="ts">
+import { RouteRecordRaw } from "vue-router";
 import { IRouterType } from "../router/routerConfig";
 
 const props = defineProps({
@@ -36,7 +37,7 @@ const props = defineProps({
 });
 
 const useNext = computed(() => {
-  const allData = props.asideData.flatMap((item) => item.routerData);
+  const allData:RouteRecordRaw[] = props.asideData.flatMap((item) => item.routerData);
   const selfIndex = allData.findIndex(
     (item) => `${props.baseLink}/${item.path}` === props.selfLink
   );
@@ -49,6 +50,6 @@ const useNext = computed(() => {
 
 <style scoped>
 .next-com {
-  @apply flex items-center text-primary hover:text-sky-300 text-sm;
+  @apply flex items-center text-primary hover:text-lightBlue-300 text-sm;
 }
 </style>

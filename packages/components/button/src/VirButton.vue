@@ -94,7 +94,6 @@ const classComputed = computed(() => {
   const isCircle = ns.is(props.circle, "circle", true);
   const isSize = ns.is(true, props.size, true);
   const typeClass = ns.is_ns(true, props.type, true);
-  console.log('classComputed', typeClass);
   
   return [typeClass, isPlain, isRound, isLoading, isDisabled, isCircle, isSize];
 });
