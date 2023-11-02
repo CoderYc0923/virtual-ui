@@ -28,7 +28,9 @@ export type Props = {
     //是否开启悬浮暂停
     isSuspend?:boolean,
     //弹幕额外样式
-    extraStyle?: string
+    extraStyle?: string,
+    //弹幕透明度
+    opacity?: number
 }
 
 export type CustomBarrage = {

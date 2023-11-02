@@ -16,4 +16,9 @@ export const businessComponent: RouteRecordRaw[] = [
     meta: { title: "WaterfallFlow 瀑布流" },
     component: () => import("../../docs/waterfallflow/README.md"),
   },
+  {
+    path: "barrage",
+    meta: { title: "Barrage 弹幕插件" },
+    component: () => import("../../docs/barrage/README.md"),
+  },
 ];

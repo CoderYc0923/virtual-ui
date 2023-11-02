@@ -46,6 +46,7 @@ export const createImdElement = () => {
 };
 
 export type dm = {
+  id: number;
   avatar: string;
   text: string;
   isMe?: boolean;
@@ -54,6 +55,10 @@ export type dm = {
 export const getImageUrl = (name: string): string => {
   return new URL(`../assets/img/${name}`, import.meta.url).href
 }
+
+export const barrages1 = [
+  '草',
+]
 
 export const barrages = [
   '草',

@@ -19,6 +19,9 @@ const props = defineProps({
     }
 })
 
+console.log(props.name);
+
+
 const sizeComputed = computed(() => {
     let size = ''
     if (typeof props.size === 'number') {

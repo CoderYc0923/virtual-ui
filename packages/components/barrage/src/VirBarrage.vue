@@ -41,6 +41,7 @@ const props = withDefaults(defineProps<Props>(), {
   right: 10,
   isSuspend: false,
   extraStyle: "",
+  opacity: 1,
 });
 const emit = defineEmits<{
   (e: "update:barrage", barrage: Barrage): void;
@@ -48,6 +49,7 @@ const emit = defineEmits<{
   (e: "play-end", index: number): void;
   (e: "dm-click", danmu: Barrage, index: number): void;
 }>();
+const instance = getCurrentInstance();
 
 const {
   barrage,
@@ -64,6 +66,7 @@ const {
   isSuspend,
   extraStyle,
   useSuspendSlot,
+  opacity,
 } = toRefs(props);
 const barrageRef = ref();
 const dmContainerRef = ref();
@@ -82,12 +85,30 @@ const suspendList = ref<HTMLElement[]>([]);
 const danChannel = ref<BarrageChannel>({});
 const hidden = ref<boolean>(false);
 
-const barrageList = computed<Barrage[]>({
-  get: () => barrage.value,
-  set: (value) => {
-    emit("update:barrage", value);
+// const barrageList = computed<Barrage[]>({
+//   get: () => barrage.value,
+//   set: (value) => {
+//     emit("update:barrage", value);
+//   },
+// });
+
+// const barrageList = computed<Barrage[]>(() => {
+//   console.log('props.barrage', barrage.value);
+//   return barrage.value
+// })
+
+const barrageList = ref<Barrage[]>([]);
+
+watch(
+  () => props.barrage,
+  (value: Barrage[]) => {
+    barrageList.value = value;
   },
-});
+  {
+    deep: true,
+    immediately: true,
+  }
+);
 
 const dmChannels = computed<number>(() => channels.value || calcChannels.value);
 
@@ -147,7 +168,7 @@ const draw = () => {
   }
 };
 
-//监听移出当前元素，取消移动端悬浮
+//监听鼠标移出当前元素，取消弹幕悬浮
 const cancelSuspend = () => {
   document.body.addEventListener(
     "mouseout",
@@ -336,6 +357,7 @@ const insert = (dm?: Barrage) => {
     _barrage = insertList.value[insertIndex.value];
     isOuterDm = true;
   }
+
   let el: HTMLDivElement = document.createElement("div");
   let sel: HTMLDivElement = document.createElement("div");
   if (useSlot.value) el = createVDom(_barrage, _index) as HTMLDivElement;
@@ -374,7 +396,7 @@ const insert = (dm?: Barrage) => {
       el.dataset.index = `${_index}`;
       el.style.top = channelIndex * (height + top.value) + "px";
       el.style.width = width + "px";
-      el.style.opacity = "1";
+      el.style.opacity = `${opacity.value}`;
       el.style.setProperty(
         "--dm-scroll-width",
         `-${containerWidth.value + width * 2}px`
@@ -554,7 +576,7 @@ onBeforeUnmount(() => {
       @include base-transform();
       position: absolute;
       font-size: 20px;
-      color: #666;
+      color: white;
       text-align: center;
       white-space: pre;
       transform-style: preserve-3d;
