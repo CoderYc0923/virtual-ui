@@ -1,14 +1,14 @@
-let copydir = require('copy-dir')
+import copydir from "copy-dir";
 copydir.sync(
-  process.cwd() + '/src.docs',
-  process.cwd() + 'VirtualUiDoc/docs',
+  process.cwd() + "/src/docs",
+  process.cwd() + "/VirtualUiDoc/docs",
   {
     utimes: true,
     mode: true,
-    cover: true
+    cover: true,
   },
   function (err) {
-    if (err) throw err
-    console.log('done')
+    if (err) throw err;
+    console.log("done");
   }
-)
+);

@@ -1,6 +1,6 @@
 import {
   createRouter,
-  createWebHistory,
+  createWebHashHistory,
   RouterOptions,
   Router,
   RouteRecordRaw,
@@ -8,7 +8,7 @@ import {
 import { routerDocsComponent } from "./routerConfig";
 
 const routes: RouteRecordRaw[] = [
-  { path: '/', redirect: '/doc/component' },
+  { path: "/", redirect: "/doc/component" },
   {
     path: "/test",
     name: "Test",
@@ -28,7 +28,7 @@ const routes: RouteRecordRaw[] = [
 ];
 
 const options: RouterOptions = {
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes,
 };
 
