@@ -15,7 +15,6 @@ import {
   ref,
   onMounted,
   toRefs,
-  watch,
   computed,
   nextTick,
   render,
