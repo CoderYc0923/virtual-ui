@@ -13,7 +13,7 @@
       <template #test="{ barrageList }">
         <span style="color: white">{{ barrageList }}</span>
       </template>
-      <template #dm="{ barrage, index }">
+      <template #dm="{ barrage }">
         <div class="danmu-item" :class="[barrage?.isMe ? 'btn-item--me' : '']">
           <img
             class="danmu-item--avatar"

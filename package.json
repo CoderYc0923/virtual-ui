@@ -2,7 +2,7 @@
   "name": "freeze-virtual-ui",
   "private": false,
   "author": "yechao. Email: 1151062047@qq.com",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Make the UI component library you want to make.",
   "keywords": "vue typescript element ui 组件库 弹幕 瀑布流 无限滚动 横向滚动",
   "files": [

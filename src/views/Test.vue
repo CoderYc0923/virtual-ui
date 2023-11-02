@@ -13,10 +13,10 @@
         @play-end="handlePlayEnd"
         @list-end="handleListEnd"
       >
-      <template #test="{ barrageList }">
-        <span style="color: white;">{{ barrageList }}</span>
-      </template>
-        <template #dm="{ barrage, index }">
+        <template #test="{ barrageList }">
+          <span style="color: white">{{ barrageList }}</span>
+        </template>
+        <template #dm="{ barrage }">
           <div
             class="danmu-item"
             :class="[barrage?.isMe ? 'btn-item--me' : '']"
@@ -34,7 +34,11 @@
         <template #suspend="{ barrage, index }">
           <div class="danmu-suspend">
             <div class="item" @click="handleAdd(barrage)">➕</div>
-            <span @click="handleAddStar(index)" :id="`star${index}`" dataBefore="🤍"></span>
+            <span
+              @click="handleAddStar(index)"
+              :id="`star${index}`"
+              dataBefore="🤍"
+            ></span>
           </div>
         </template>
       </vir-barrage>
@@ -126,7 +130,7 @@ const inputDanmu = ref<string>("");
 const inputOpacity = ref<number>(1);
 
 const Barrages = ref<string[] | dm[]>([]);
-const stars = ref<boolean[]>([])
+const stars = ref<boolean[]>([]);
 
 const getBarrages = () => {
   const dms: any = [];
@@ -139,7 +143,7 @@ const getBarrages = () => {
           ? getImageUrl(`default-avatar (${index % 25}).png`)
           : "",
     });
-    stars.value.push(false)
+    stars.value.push(false);
   });
   return dms;
 };
@@ -227,9 +231,9 @@ const handleAdd = (dm: dm) => {
 };
 
 const handleAddStar = (index: number) => {
-  const currentStar = document.getElementById(`star${index}`)
-  currentStar?.setAttribute('dataBefore', '🧡')
-}
+  const currentStar = document.getElementById(`star${index}`);
+  currentStar?.setAttribute("dataBefore", "🧡");
+};
 
 const handleEditOpacity = () => {
   config.opacity = inputOpacity.value;
@@ -354,11 +358,11 @@ onUnmounted(() => {
   }
 
   span::before {
-    content: attr(dataBefore)
+    content: attr(dataBefore);
   }
 
   span:active::before {
-    content: '🧡'
+    content: "🧡";
   }
 }
 </style>

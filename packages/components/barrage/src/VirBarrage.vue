@@ -15,6 +15,7 @@ import {
   ref,
   onMounted,
   toRefs,
+  watch,
   computed,
   nextTick,
   render,
@@ -49,7 +50,6 @@ const emit = defineEmits<{
   (e: "play-end", index: number): void;
   (e: "dm-click", danmu: Barrage, index: number): void;
 }>();
-const instance = getCurrentInstance();
 
 const {
   barrage,
@@ -85,22 +85,16 @@ const suspendList = ref<HTMLElement[]>([]);
 const danChannel = ref<BarrageChannel>({});
 const hidden = ref<boolean>(false);
 
-// const barrageList = computed<Barrage[]>({
-//   get: () => barrage.value,
-//   set: (value) => {
-//     emit("update:barrage", value);
-//   },
-// });
+const barrageList = computed<Barrage[]>({
+  get: () => barrage.value,
+  set: (value) => {
+    emit("update:barrage", value);
+  },
+});
+/* const barrageList = ref<Barrage[]>([]); */
 
-// const barrageList = computed<Barrage[]>(() => {
-//   console.log('props.barrage', barrage.value);
-//   return barrage.value
-// })
-
-const barrageList = ref<Barrage[]>([]);
-
-watch(
-  () => props.barrage,
+/* watch(
+  () => barrage.value,
   (value: Barrage[]) => {
     barrageList.value = value;
   },
@@ -108,7 +102,7 @@ watch(
     deep: true,
     immediately: true,
   }
-);
+); */
 
 const dmChannels = computed<number>(() => channels.value || calcChannels.value);
 
@@ -121,7 +115,7 @@ const initCore = () => {
 //触摸悬浮
 const initSuspendEvent = () => {
   let suspendBarrage: HTMLElement[] = [];
-  dmContainerRef.value.addEventListener("mouseout", (e) => {
+  dmContainerRef.value.addEventListener("mouseout", (e: any) => {
     let target = e.target as EventTarget & HTMLElement;
     if (!target.className.includes("dm")) {
       target = target.closest(".dm") || target;
