@@ -11,6 +11,7 @@
 > Tip:<br> 1.异步加载的弹幕数据需手动调用`play()`方法进行弹幕播放, 此时`autoplay`属性失效。
 > <br> 2.为考虑到性能,建议在弹幕数据量大时采用 `insert()`方式插入弹幕
 > <br> 3. 弹幕数据格式自定义,故可实现高自由度的弹幕样式、事件等
+> <br> 4. 由于弹幕组件设计方案问题,导致类似点赞等功能不能通过改动`danmus`数据响应式实现,即点赞样式与数据需分离处理,若需要实时点赞效果,可借鉴下方案例实现方式
 
 <show-code showPath="barrage/components/baseBarrage">
 <baseBarrage></baseBarrage>
