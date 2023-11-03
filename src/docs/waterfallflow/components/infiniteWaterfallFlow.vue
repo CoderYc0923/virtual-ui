@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 800px; height: 600px">
+  <div style="height: 600px">
     <vir-infinite-scroll
       @reached-trigger="triggerHnadle"
       :loading="isLoading"

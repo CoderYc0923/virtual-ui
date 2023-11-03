@@ -2,7 +2,6 @@
   <vir-waterfall-flow
     :data-list="dataList"
     :columns="4"
-    :width="800"
     :height="600"
     :gap="10"
   >

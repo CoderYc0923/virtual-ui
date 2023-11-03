@@ -2,7 +2,7 @@
   <div class="test-box relative">
     <!-- 组件测试可以在这里测 -->
     <vir-barrage
-      class="barrage"
+      class="barrage w-full h-300"
       ref="barrageRef"
       :barrage="Barrages"
       v-bind="config"
@@ -300,8 +300,8 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
 .barrage {
-  width: 800px;
-  height: 600px;
+  // width: 800px;
+  // height: 600px;
   background-color: #000;
 }
 
