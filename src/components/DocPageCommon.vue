@@ -77,7 +77,7 @@ const getTopMore = (els: HTMLElement[]) => {
     }))
     .filter((item) => item.offsetTop > 0);
   const minElement = data.sort((a, b) => a.offsetTop - b.offsetTop)[0];
-  return minElement.text;
+  return minElement?.text;
 };
 const scrollEvent = (els: HTMLElement[]) =>
   throttle(() => {

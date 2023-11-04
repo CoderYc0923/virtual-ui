@@ -10,6 +10,7 @@ export * from "./row-scroll";
 export * from "./infinite-scroll";
 export * from "./waterfall-flow";
 export * from "./barrage";
+export * from './water-mark'
 
 import button from "./button";
 import icon from "./icon";

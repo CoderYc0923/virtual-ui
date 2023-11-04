@@ -21,4 +21,9 @@ export const businessComponent: RouteRecordRaw[] = [
     meta: { title: "Barrage 弹幕插件" },
     component: () => import("../../docs/barrage/README.md"),
   },
+  {
+    path: "water-mark",
+    meta: { title: "WaterMark 水印" },
+    component: () => import("../../docs/watermark/README.md"),
+  },
 ];
