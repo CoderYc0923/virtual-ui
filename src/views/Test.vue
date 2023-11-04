@@ -11,7 +11,6 @@
 
 <script setup lang="ts">
 import { VirWaterMark } from "../../packages/components/water-mark/src/watermark";
-import wm from "../assets/img/wm.png";
 import wm2 from "../assets/img/wm2.png";
 
 const imgUrl = ref();
