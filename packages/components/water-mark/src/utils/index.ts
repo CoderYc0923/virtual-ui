@@ -1,7 +1,0 @@
-export { observeWatermark, Guard } from './observeWatermark'
-export * from './getTextSize'
-export * from './createWatermark'
-export * from './createCanvas'
-export * from './createImage'
-export * from './initConfig'
-export * from './decodeImage'

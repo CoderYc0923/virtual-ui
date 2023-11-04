@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
+    "l-watermark": "^2.1.2",
     "sass": "^1.69.4",
     "terser": "^5.24.0",
     "vite-plugin-md": "0.11.6",

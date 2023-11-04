@@ -1,58 +1,3 @@
-//传入的水印配置
-export interface WaterMakeConfig {
-  target: HTMLElement | HTMLImageElement | string;
-  // 水印的内容（文字）
-  text?: string;
-  // 水印的内容（图片：图片的合法src）
-  image?: string;
-  // image属性的宽度
-  imageWidth?: number | string;
-  // image属性的高度
-  imageHeight?: number | string;
-  // text属性的颜色
-  color?: string;
-  // text属性的大小
-  fontSize?: string | number;
-  // 水印的层级er
-  zIndex?: string | number;
-  // 单个水印间的横向距离
-  cSpace?: string | number;
-  // 单个水印间的纵向距离
-  vSpace?: string | number;
-  // text属性的旋转角度r
-  angle?: string | number;
-  // 是否添加暗水印（只有给图片添加文字水印时生效）
-  secret?: boolean;
-  // 水印的位置（仅当给图片添加水印时生效）
-  position?: Position;
-  // 水印被改变时的回调函数（仅当给页面添加水印时生效）
-  onchange?(mr?: MutationRecord): void;
-  // 添加水印过程发生错误时的回调
-  onerror?(err: string): void;
-  // 水印添加成功时的回调
-  success?(base64?: string): void;
-}
-
-//生成的水印配置
-export interface FinalWaterMakeConfig {
-  target: HTMLElement | HTMLImageElement;
-  text: string;
-  image: string;
-  imageWidth?: number;
-  imageHeight?: number;
-  color: string;
-  fontSize: number;
-  zIndex: string;
-  cSpace: number;
-  vSpace: number;
-  angle: number;
-  secret: boolean;
-  position: Position;
-  onchange(mr?: MutationRecord): void;
-  onerror(err: string): void;
-  success(base64?: string): void;
-}
-
 // 水印的位置（默认平铺）：平铺 居中 右下 左下 左上 上右
 type Position =
   | "repeat"
@@ -61,3 +6,107 @@ type Position =
   | "bottomLeft"
   | "topLeft"
   | "topRight";
+
+// 错误
+export interface ErrorType {
+  code: number;
+  message: string;
+  reason: string;
+}
+
+// 给页面加水印
+export namespace PageConfig {
+  // 文字水印
+  export interface Text {
+    target: HTMLElement; // 添加水印的目标元素
+    text: string; // 水印文字
+    color: string; // 水印字体颜色rgba
+    fontSize: number; // 水印字体大小
+    zIndex: string; // 层级
+    rowGap: number; // 水印横向间距
+    colGap: number; // 水印纵向间距
+    angle: number; // 水印旋转角度
+    onchange?(mr: MutationRecord): void; // 水印被改变时候的回调
+    onerror?(err: ErrorType): void; // 添加水印发生错误的回调
+    success?(): void; // 添加水印成功的回调
+  }
+
+  // 图片水印
+  export interface Image {
+    target: HTMLElement; // 添加水印的目标元素
+    image: string; // 水印图片
+    zIndex: string; // 层级
+    rowGap: number; // 水印横向间距
+    colGap: number; // 水印纵向间距
+    onchange?(mr: MutationRecord): void; // 水印被改变时候的回调
+    onerror?(err: ErrorType): void; // 添加水印发生错误的回调
+    success?(): void; // 添加水印成功的回调
+  }
+
+  // 用户配置
+  export interface User {
+    target?: HTMLElement;
+    containerEl?: HTMLElement;
+    text?: string;
+    image?: string;
+    color?: string;
+    fontSize?: string | number;
+    zIndex?: string | number;
+    rowGap?: string | number;
+    colGap?: string | number;
+    angle?: string | number;
+    onchange?(mr: MutationRecord): void;
+    onerror?(err: ErrorType): void;
+    success?(): void;
+  }
+}
+
+// 给图片加水印
+export namespace ImageConfig {
+  // 文字水印
+  export interface Text {
+    target: HTMLImageElement; // img标签
+    text: string; // 水印文字
+    secret: boolean; // 开启暗水印
+    position: Position;
+    color: string; // 水印字体颜色rgba
+    fontSize: number; // 水印字体大小
+    rowGap: number; // 水印横向间距
+    colGap: number; // 水印纵向间距
+    angle: number; // 水印旋转角度
+    success?(base64: string): void; // 回调用
+    onerror?(err: ErrorType): void;
+  }
+
+  // 图片水印
+  export interface Image {
+    target: HTMLImageElement; // img标签
+    image: string; // 水印图片url/base64
+    imageWidth?: number;
+    imageHeight?: number;
+    secret: boolean; // 开启暗水印
+    position: Position;
+    rowGap: number; // 水印横向间距
+    colGap: number; // 水印纵向间距
+    success?(base64: string): void; // 回调用
+    onerror?(err: ErrorType): void;
+  }
+
+  // 用户配置
+  export interface User {
+    target: HTMLImageElement | string;
+    text?: string;
+    image?: string;
+    imageWidth?: number | string;
+    imageHeight?: number | string;
+    secret?: boolean;
+    position?: Position;
+    color?: string;
+    fontSize?: number | string;
+    rowGap?: number | string;
+    colGap?: number | string;
+    angle?: number | string;
+    success?(base64: string): void;
+    onerror?(err: ErrorType): void;
+  }
+}

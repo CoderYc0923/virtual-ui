@@ -11,5 +11,6 @@ declare module "*.md" {
   export default Component;
 }
 declare module "*.ts";
+declare module "*.png";
 declare module "@/router/routerConfig";
 declare module "prismjs";
