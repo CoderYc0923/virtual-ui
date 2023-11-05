@@ -1,13 +1,16 @@
-# 开始
+# Make any component library you want to make.
 
-欢迎使用 VirtualUI
-说明文档： http://124.221.185.18/
+<p align="center" style="display: flex">
+  <img src="https://img.shields.io/badge/v1.0.2-4FCA21" style="margin-right: 10px"><img src="https://img.shields.io/badge/License-MIT-blue">
+</p>
 
-## 介绍
-
-Make the UI component library you want to make.
-
-技术栈 **vue3, typescript, vite, vite-plugin-md, tailwindcss, scss**
+<p align="center" style="display: flex">
+  <img src="https://img.shields.io/badge/Vue3-D9B125" style="margin-right: 10px">
+  <img src="https://img.shields.io/badge/TypeScrpit-D9B125" style="margin-right: 10px">
+  <img src="https://img.shields.io/badge/Vite-D9B125" style="margin-right: 10px">
+  <img src="https://img.shields.io/badge/TailwindCSS-D9B125" style="margin-right: 10px">
+  <img src="https://img.shields.io/badge/SCSS-D9B125">
+</p>
 
 ## 已经实现组件
 

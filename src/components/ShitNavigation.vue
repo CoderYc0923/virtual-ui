@@ -2,7 +2,7 @@
   <div
     id="shit-nav"
     class="px-6 py-4 box-border border-b flex items-center sticky top-0 bg-white"
-    style="z-index: 9"
+    style="z-index: 10001"
   >
     <div class="cursor-pointer flex align-center" @click="drawer = true">
       <vir-icon name="expand" size="23"></vir-icon>
