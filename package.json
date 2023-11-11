@@ -12,7 +12,7 @@
   ],
   "main": "./VirtualUI/virtual-ui.es.js",
   "module": "./VirtualUI/virtual-ui.es.js",
-  "repository": "https://gitee.com/ye_chao111/virtual-ui",
+  "repository": "https://github.com/CoderYc0923/virtual-ui",
   "type": "module",
   "scripts": {
     "dev": "vite --host --mode development --config ./config/dev.config.ts",
