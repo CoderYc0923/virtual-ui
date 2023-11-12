@@ -3,9 +3,9 @@
   "private": false,
   "author": "yechao. Email: 1151062047@qq.com",
   "license": "MIT",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Make the UI component library you want to make.",
-  "homepage": "http://124.221.185.18",
+  "homepage": "https://coderyc0923.github.io/virtual-ui",
   "keywords": "vue typescript element ui 组件库 弹幕 瀑布流 无限滚动 横向滚动 水印",
   "files": [
     "VirtualUI"

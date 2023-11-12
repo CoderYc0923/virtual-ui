@@ -1,6 +1,7 @@
 node_modules
 dist
 VirtualUiDoc
+VirtualUi
 
 # Log files
 npm-debug.log*
