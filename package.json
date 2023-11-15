@@ -19,7 +19,7 @@
     "build:doc": "vue-tsc --noEmit --skipLibCheck && vite build --mode production --config ./config/prod.doc.config.ts && node ./config/copyDocs.js",
     "build:com": "vue-tsc --noEmit --skipLibCheck && vite build --mode production --config ./config/prod.com.config.ts",
     "preview": "vite preview",
-    "deploy": "gh-pages -d build"
+    "docs:deploy": "sh deploy.sh"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",

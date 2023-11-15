@@ -39,9 +39,9 @@ const getRandomWaitTime = () => {
   return Math.floor(Math.random() * 2001 + 1000);
 };
 
-const createRequest = (i: number) => {
+const createRequest = () => {
   return async () => {
-    const data = await new Promise((resolve, reject) =>
+    const data = await new Promise((resolve) =>
       setTimeout(resolve, getRandomWaitTime())
     );
     return data;
@@ -52,7 +52,7 @@ const sendRequest = () => {
   if (!isSending.value) {
     isSending.value = true;
     for (let i = 0; i < 10; i++) {
-      const task = createRequest(i);
+      const task = createRequest();
       promisePool.addTask(task);
     }
   }
