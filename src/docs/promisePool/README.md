@@ -1,60 +1,39 @@
 <script setup>
-
+    import basePromisePool from './components/basePromisePool.vue'
 </script>
 
-# WaterMark 水印
+# VirPromisePool 并发池
 
-`Canvas`水印方案，兼容性好。<br>
-【多场景覆盖】：支持向`页面元素` `图片`添加`文字` `图片` 水印 以及对图片添加`文字暗水印及暗水印解密`<br>
-【高安全性】：支持水印守卫，防止篡改删除水印<br>
-【高自由度】：水印支持自定义字体颜色、字体大小、间距、层级、旋转角度<br>
-
-## 向页面元素添加文字水印
-
-## 向页面元素添加图片水印
+基于`Promise`的前端并发异步控制 SDK，并支持`数量控制` `中断`等功能。<br>
+VirPromisePool 提供多种回调 hook,可灵活操控并发任务， 满足基本相关业务需求。<br>
+满足场景：`文件分片上传` `项目全局环境请求控制`等需要异步并发控制的场景
 
 > Tip<br>
-> 注意：由于图片水印通过`background-image`注入`canvas`，故此模式下无法进行设置水印间的间距
+> 若 VirPromisePool 未能很好的支持您的业务场景，欢迎向我们[反馈](https://github.com/CoderYc0923/virtual-ui/issues)<br>
+> 收到反馈后我们会尽快处理解决。
 
-## 向图片添加文字水印
+## 案例
 
-## 向图片添加文字暗水印
+> Tip<br>
+> 详情见控制台（F11）
 
-## WaterMark.page 属性
+<show-code showPath="promisePool/components/basePromisePool">
+<basePromisePool></basePromisePool>
+</show-code>
 
-| 属性     | 说明                                   | 类型        | 可选值        | 默认值              |
-| -------- | -------------------------------------- | ----------- | ------------- | ------------------- |
-| target   | 目标元素                               | HTMLElement | ---           | document.body       |
-| text     | 水印文字内容(text or image choose one) | string      | ---           | VirWaterMark        |
-| image    | 水印图片地址(text or image choose one) | string      | auto、visible | ---                 |
-| color    | 水印文字颜色                           | array       | ---           | rgba(0, 0, 0, 0.15) |
-| fontSize | 水印文字大小                           | number      | ---           | 24                  |
-| zIndex   | 水印层级                               | number      | ---           | 10000               |
-| rowGap   | 水印横向间距（仅 text）                | number      | ---           | 0                   |
-| colGap   | 水印纵向间距 （仅 text）               | number      | ---           | 0                   |
+## VirPromisePool 初始化参数
 
-## WaterMark.image 属性
+| 属性           | 说明                               | 类型     | 可选值 | 默认值 | 返回值                                 |
+| -------------- | ---------------------------------- | -------- | ------ | ------ | -------------------------------------- |
+| maxCount       | 可并发上传的最大数量               | number   | ---    | 5      | -                                      |
+| debug          | 是否开启流程打印（开启后见控制台） | boolean  | ---    | false  | -                                      |
+| onFinish       | 并发任务全部完成的回调             | Function | ---    | -      | -                                      |
+| onTaskFinish   | 单个并发任务完成的回调             | Function | ---    | -      | `taskWithCallbacks<T>`（返回当前完成的任务） |
+| customTaskInfo | 并发任务自定义公共参数信息         | Object   | ---    | {}     | -                                      |
 
-| 属性        | 说明                                   | 类型        | 可选值                                                     | 默认值              |
-| ----------- | -------------------------------------- | ----------- | ---------------------------------------------------------- | ------------------- |
-| target      | 目标元素                               | HTMLElement | ---                                                        | document.body       |
-| text        | 水印文字内容(text or image choose one) | string      | ---                                                        | VirWaterMark        |
-| image       | 水印图片地址(text or image choose one) | string      | auto、visible                                              | ---                 |
-| imageWidth  | 水印图片宽度 （仅 text）               | number      | ---                                                        | ---                 |
-| imageHeight | 水印图片高度 （仅 text）               | number      | ---                                                        | ---                 |
-| color       | 水印文字颜色                           | array       | ---                                                        | rgba(0, 0, 0, 0.15) |
-| fontSize    | 水印文字大小                           | number      | ---                                                        | 24                  |
-| secret      | 开启暗水印                             | boolean     | ---                                                        | false               |
-| position    | 水印位置                               | number      | repeat、center、bottomRight、bottomLeft、topLeft、topRight | repeat              |
+## VirPromisePool 方法
 
-## WaterMark.utils 内置函数
-
-| 函数名      | 说明                               | 参数          |
-| ----------- | ---------------------------------- | ------------- |
-| decodeImage | 暗水印解密，返回 `Promise<string>` | `url<string>` |
-
-## WaterMark 事件
-
-| 事件名 | 说明     | 参数 |
-| ------ | -------- | ---- |
-| remove | 清除水印 | ---  |
+| 函数名   | 说明                                                         | 参数                    |
+| -------- | ------------------------------------------------------------ | ----------------------- |
+| addTask  | 添加任务                                                     | task: `() => Promise<T>` |
+| stopTask | 中断任务，返回当前还在运行的任务数组`taskWithCallbacks<T>` | -                       |

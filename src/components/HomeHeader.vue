@@ -11,6 +11,7 @@
       </router-link>
       <div class="header-nav">
         <vir-button type="text" @click="open">联系我们</vir-button>
+        <vir-button type="text" @click="openLog">版本日志</vir-button>
       </div>
     </div>
   </header>
@@ -19,9 +20,16 @@
 
 <script setup lang="ts">
 import { MessageBoxFn } from "../../packages/components/message-box";
+import { log } from '../utils/log'
 
 const open = () => {
   MessageBoxFn("Email: 1151062047@qq.com", "联系我们", {
+    showCancelButton: false,
+  });
+};
+
+const openLog = () => {
+  MessageBoxFn(log, "版本日志", {
     showCancelButton: false,
   });
 };

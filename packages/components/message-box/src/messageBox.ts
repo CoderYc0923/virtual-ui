@@ -64,8 +64,6 @@ const showMessage = (options: any = {}) => {
       vm[prop as string] = options[prop];
     }
   }
-  console.log('1111',vm);
-  
   vm._visible = true;
   return vm;
 };

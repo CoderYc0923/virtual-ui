@@ -10,7 +10,7 @@
             @click="confirmAll('cancel')"
           />
         </div>
-        <div class="py-4 flex items-center">
+        <div class="py-4 flex items-center utils-scrollbar overflow-auto max-h-96">
           <span class="text-sm text-gray-500" v-html="state.message"></span>
         </div>
         <div class="flex justify-end pt-0.5">
