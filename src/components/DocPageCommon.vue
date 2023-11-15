@@ -112,12 +112,6 @@ onBeforeRouteUpdate((to) => {
     }, 200);
   });
 });
-// router.afterEach((to) => {
-//   console.log('111111', to);
-
-//   window.scrollTo(0, 0);
-//   updateDocCatalogue();
-// })
 </script>
 
 <style>

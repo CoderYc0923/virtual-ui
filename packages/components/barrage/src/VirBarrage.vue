@@ -415,8 +415,6 @@ const insert = (dm?: Barrage) => {
         insertIndex.value++;
       }
     } else {
-      // console.log("channelIndex", channelIndex);
-      // debugger;
       dmContainerRef.value.removeChild(el);
     }
   });
