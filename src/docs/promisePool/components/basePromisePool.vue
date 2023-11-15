@@ -25,7 +25,7 @@ const taskFinish = (task: taskWithCallbacks<any>) => {
 
 const promisePool = new VirPromisePool({
   maxCount: 3,
-  debug: false,
+  debug: true,
   customTaskInfo: {
     title: "文件分片并发请求",
   },

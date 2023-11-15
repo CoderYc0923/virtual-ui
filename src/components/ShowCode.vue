@@ -111,7 +111,7 @@ onMounted(async () => {
     );
     sourceCode.value = data.default;
   } else {
-    sourceCode.value = await fetch(`/docs/${props.showPath}.vue`).then((res) =>
+    sourceCode.value = await fetch(`/virtual-ui/docs/${props.showPath}.vue`).then((res) =>
       res.text()
     );
   }
