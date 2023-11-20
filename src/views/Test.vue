@@ -4,85 +4,41 @@
     <hr style="margin-bottom: 30px" />
     <div class="test-box relative">
       <!-- 组件测试可以在这里测 -->
-      <img :src="imgUrl" alt="" />
+      <h4>这里是测试复制测试复制测试复制</h4>
+      <textarea
+        placeholder="可以在这里粘贴"
+        style="width: 300px; height: 400px; border: 1px solid #333"
+      ></textarea>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { VirWaterMark } from "../../packages/components/water-mark/src/watermark";
-import wm2 from "../assets/img/wm2.png";
+import { VirClipboard } from "../../packages/components/clipboard/index";
+import { InitConfig } from "../../packages/components/clipboard/src/Clipboard.help";
 
-const imgUrl = ref();
+const onCopyCallback = () => {
+  alert("监听到了复制噢");
+};
 
-//页面:文字
-// const init = () => {
-//   VirWaterMark.init({
-//     target: watermarkRef.value,
-//     text: '把公屏打在xx上',
-//     color: 'red',
-//     fontSize: 24
-//   })
-// }
+const clipboardInterceptor = (clipboardText: string) => {
+  console.log("原有粘贴板的内容", clipboardText);
+  return (
+    clipboardText + " - VirtualUi: Make any component library you want to make."
+  );
+};
 
-//页面:图片
-// const init = () => {
-//   VirWaterMark.init({
-//     target: watermarkRef.value,
-//     image: wm,
-//     rowGap: 200,
-//     colGap: 500
-//   })
-// }
-
-//图片:文字
-/* const init = () => {
-  VirWaterMark.image({
-    target: wm2,
-    text: "测试专用",
-    rowGap: 100,
-    color: "black",
-    fontSize: 20,
-    success: sucFunc,
-  });
-}; */
-
-//图片:图片
-/* const init = () => {
-  VirWaterMark.image({
-    target: wm2,
-    image: wm,
-    rowGap: 200,
-    success: sucFunc,
-  });
-}; */
-
-//图片： 明
 const init = () => {
-  VirWaterMark.image({
-    target: wm2,
-    text: "测试专用",
-    secret: true,
-    rowGap: 200,
-    success: sucFunc,
-  });
+  let initConfig: InitConfig = {
+    disableCopy: false,
+    onCopyCallback,
+    clipboardInterceptor,
+  };
+  const virClipboard = new VirClipboard(initConfig);
+  console.log(virClipboard);
 };
 
-const sucFunc = (data: any) => {
-  imgUrl.value = data;
-  setTimeout(() => {
-    decodeImage();
-  }, 1000);
-};
-
-const decodeImage = async () => {
-  const decodeSrc = await VirWaterMark.utils.decodeImage(imgUrl.value);
-  imgUrl.value = decodeSrc;
-};
-
-onMounted(() => {
-  init();
-});
+onMounted(init);
 </script>
 
 <style lang="scss" scoped></style>

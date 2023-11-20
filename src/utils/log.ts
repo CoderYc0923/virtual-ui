@@ -11,4 +11,10 @@ const log_2 = `<div>
 1.新增业务组件: 并发池1.0
 </div>`;
 
-export const log = log_1 + log_2;
+//1.1.0
+const log_3 = `<div>
+<b>1.1.0:</b><br>
+1.新增业务组件: 剪贴板1.0
+</div>`;
+
+export const log = log_1 + log_2 + log_3;

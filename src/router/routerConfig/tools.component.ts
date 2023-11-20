@@ -6,4 +6,9 @@ export const toolsComponent: RouteRecordRaw[] = [
     meta: { title: "PromisePool 并发池" },
     component: () => import("../../docs/promisePool/README.md"),
   },
+  {
+    path: "clipboard",
+    meta: { title: "Clipboard 剪贴板" },
+    component: () => import("../../docs/clipboard/README.md"),
+  },
 ];
